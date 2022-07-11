@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My app</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="name">🖊 Name</string>
+    <string name="add">ADD</string>
+    <string name="assigned_to">Assigned to:</string>
+    <string name="behaviour">Behaviour ❤</string>
+    <string name="duties">Duties</string>
+    <string name="repeat">🔄 Repeat</string>
+    <string name="child_s_rewards">Child\'s Rewards</string>
+</resources>

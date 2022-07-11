@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.s462050.ui.home.HomeViewModel" />
+        <variable
+            name="resourceUtils"
+            type="com.s462050.utils.ResourceUtils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment"
+        android:background="@drawable/back">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/textTitleHeight"
+            android:textSize="@dimen/textTitleSize"
+            android:textColor="@color/colorTitle"
+            android:text="@string/child_s_rewards"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#463F51B5"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                android:padding="@dimen/padding_kolejny"
+                app:layout_row="0">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layoutPeopleMenuHeight"
+                    android:padding="@dimen/padding_jakis">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/Layout3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:imageResource='@{resourceUtils.getResourceDrawableId(viewModel.childList.size()>=1? viewModel.childList.get(0).drawableName: "icons8_circled_user_male_skin_type_7_50 ", context)}'
+                            android:scaleX="@dimen/imageScale"
+                            android:scaleY="@dimen/imageScale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/labeltext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/medium_padding"
+                        android:paddingBottom="@dimen/small_padding"
+                        android:text='@{viewModel.childList.size()>=1? viewModel.childList.get(0).name: "", default="Name"}'
+                        android:textSize="@dimen/textNameSize"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/Layout3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/heart1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_heart_24"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(0).behaviorPoints): "", default = 0}' />
+
+                        <TextView
+                            android:id="@+id/ckeck1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_task_completed"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(0).dutyPoints): "", default = 0}' />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#463F51B5"
+                app:layout_column="1"
+                android:padding="@dimen/padding_kolejny"
+                app:layout_columnWeight="1"
+                app:layout_row="0">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layoutPeopleMenuHeight"
+                    android:padding="@dimen/padding_jakis">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext2"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/Layout31"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:imageResource='@{resourceUtils.getResourceDrawableId(viewModel.childList.size()>=1? viewModel.childList.get(1).drawableName: "icons8_circled_user_male_skin_type_7_50 ", context)}'
+                            android:scaleX="@dimen/imageScale"
+                            android:scaleY="@dimen/imageScale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/labeltext2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/medium_padding"
+                        android:paddingBottom="@dimen/small_padding"
+                        android:text='@{viewModel.childList.size()>=1? viewModel.childList.get(1).name: "", default="Name"}'
+                        android:textSize="@dimen/textNameSize"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/Layout31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/heart2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_heart_24"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(1).behaviorPoints): "", default = 0}' />
+
+                        <TextView
+                            android:id="@+id/ckeck2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_task_completed"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(1).dutyPoints): "", default = 0}' />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#463F51B5"
+                app:layout_column="0"
+                android:padding="@dimen/padding_kolejny"
+                app:layout_columnWeight="1"
+                app:layout_row="1">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layoutPeopleMenuHeight"
+                    android:padding="@dimen/padding_jakis">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext3"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/Layout32"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:imageResource='@{resourceUtils.getResourceDrawableId(viewModel.childList.size()>=1? viewModel.childList.get(2).drawableName: "icons8_circled_user_male_skin_type_7_50 ", context)}'
+                            android:scaleX="@dimen/imageScale"
+                            android:scaleY="@dimen/imageScale"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/labeltext3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/medium_padding"
+                        android:paddingBottom="@dimen/small_padding"
+                        android:text='@{viewModel.childList.size()>=1? viewModel.childList.get(2).name: "", default="Name"}'
+                        android:textSize="@dimen/textNameSize"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/Layout32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/heart3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_heart_24"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(2).behaviorPoints): "", default = 0}' />
+
+                        <TextView
+                            android:id="@+id/ckeck3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_task_completed"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(2).dutyPoints): "", default = 0}' />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                app:cardBackgroundColor="#463F51B5"
+                android:padding="@dimen/padding_kolejny"
+                android:layout_height="wrap_content"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="1">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layoutPeopleMenuHeight"
+                    android:padding="@dimen/padding_jakis">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/circle"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext4"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/Layout33"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleX="@dimen/imageScale"
+                            android:scaleY="@dimen/imageScale"
+                            android:imageResource='@{resourceUtils.getResourceDrawableId(viewModel.childList.size()>=1? viewModel.childList.get(3).drawableName: "icons8_circled_user_male_skin_type_7_50 ", context)}'
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/labeltext4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/medium_padding"
+                        android:paddingBottom="@dimen/small_padding"
+                        android:text='@{viewModel.childList.size()>=1? viewModel.childList.get(3).name: "", default="Name"}'
+                        android:textSize="@dimen/textNameSize"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/Layout33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/labeltext4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/heart4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_heart_24"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(3).behaviorPoints): "", default = 0}' />
+
+                        <TextView
+                            android:id="@+id/ckeck4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_task_completed"
+                            android:drawablePadding="@dimen/small_padding"
+                            android:text='@{viewModel.childList.size()>=1? Integer.toString(viewModel.childList.get(3).dutyPoints): "", default = 0}' />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <Button
+            android:layout_margin="@dimen/huge_padding"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD CHILD"
+            android:onClick="@{() -> viewModel.addNewChild()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
